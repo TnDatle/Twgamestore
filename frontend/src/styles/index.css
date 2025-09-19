@@ -1,0 +1,7 @@
+/* global reset + biến fallback */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+:root {
+  --header-height: 120px; /* fallback tạm thời (sẽ được JS cập nhật) */
+  --content-offset: 24px; /* khoảng cách thêm giữa header và nội dung */
+}

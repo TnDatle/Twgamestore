@@ -1,0 +1,49 @@
+.home {
+  padding: 20px 0;
+  min-height: 80vh;
+  background-color: #fff;
+  color: #121212;
+  text-align: center;
+}
+
+.home h1 {
+  margin-bottom: 30px;
+  font-size: 32px;
+}
+
+/* Slider full-width, full-height, hiển thị rõ ảnh */
+.slider {
+  width: 100vw;           /* full chiều ngang */
+  height: auto;           /* tự động theo tỉ lệ ảnh */
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 98%;            /* full chiều ngang */
+  height: auto;           /* giữ tỷ lệ gốc */
+  display: block;         /* loại bỏ khoảng trống dưới ảnh */
+  image-rendering: auto;  /* render ảnh mượt, rõ nét */
+}
+
+.dots {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #fff;
+  opacity: 1;
+}

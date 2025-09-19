@@ -1,0 +1,176 @@
+/* =================== PAGE CONTAINER =================== */
+.console-page {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.console-page h1 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #222;
+  font-weight: bold;
+}
+
+/* =================== DANH SÁCH CONSOLE =================== */
+.console-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.console-card {
+  flex: 1 1 120px;
+  background: #fff;
+  border: 2px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 15px 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.console-card img {
+  max-width: 60px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.console-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.console-card.active,
+.console-card:hover {
+  border-color: #007bff;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transform: translateY(-4px) scale(1.03);
+}
+
+.console-card:hover img {
+  transform: scale(1.1);
+}
+
+/* =================== DANH SÁCH SẢN PHẨM =================== */
+.product-list h2 {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* card ~220px */
+  gap: 20px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;        /* cố định chiều cao */
+  object-fit: contain;  /* giữ tỉ lệ ảnh */
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+.product-card h3 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 6px 0;
+  color: #222;
+  min-height: 38px;     /* giữ cho text cân bằng */
+  line-height: 1.2rem;
+  overflow: hidden;
+}
+
+.product-card p {
+  color: #007bff;
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 6px 0 12px;
+}
+
+/* =================== BUTTON =================== */
+.product-card button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.product-card button:hover {
+  background: linear-gradient(135deg, #0056b3, #0094cc);
+  transform: scale(1.05);
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 600px) {
+  .console-list {
+    justify-content: center;
+  }
+
+  .console-card {
+    flex: 1 1 100px;
+    padding: 12px 8px;
+  }
+
+  .console-card img {
+    max-width: 50px;
+  }
+
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+  }
+
+  .product-card img {
+    height: 140px;
+  }
+}
+
+/* =================== BREADCRUMB =================== */
+.breadcrumb {
+  margin: 15px 0 25px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.breadcrumb span {
+  margin: 0 3px;
+}
+
+.breadcrumb .current {
+  font-weight: bold;
+  color: #222;
+}

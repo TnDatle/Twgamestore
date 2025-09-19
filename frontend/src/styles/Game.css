@@ -1,0 +1,206 @@
+:root {
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --text-color: #222;
+  --muted-color: #555;
+  --bg-light: #fafafa;
+}
+
+/* ===== PAGE CONTAINER ===== */
+.game-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 120px 24px 60px; /* giảm chút cho gọn */
+  font-family: "Segoe UI", sans-serif;
+  color: var(--text-color);
+  background: var(--bg-light);
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb {
+  margin: 12px 0 20px;
+  font-size: 0.95rem;
+  color: var(--muted-color);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--primary-hover);
+}
+
+.breadcrumb span {
+  color: var(--text-color);
+  margin-left: 4px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .game-page {
+    padding: 90px 16px 40px;
+  }
+
+  .breadcrumb {
+    font-size: 0.85rem;
+  }
+}
+
+/* ===== FILTER ROW ===== */
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 28px;
+  justify-content: center;
+}
+
+.filter-btn {
+  padding: 10px 24px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  color: #444;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+}
+
+.filter-btn:hover {
+  border-color: #d4af37;
+  color: #d4af37;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.25);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #d4af37, #b8860b);
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  transform: translateY(-3px);
+}
+
+/* ===== SUB FILTERS ===== */
+.sub-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+.sub-filters select {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.sub-filters select:hover {
+  border-color: #d4af37;
+  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.2);
+  transform: scale(1.02);
+}
+
+/* ===== GAME GRID ===== */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 32px;
+}
+
+/* ===== GAME CARD ===== */
+.game-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.game-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(212,175,55,0.08), rgba(255,218,110,0.05));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.game-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  border-bottom: 1px solid #eee;
+}
+
+.game-card h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 16px 0 8px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.game-card .platform {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* Hover effect luxury */
+.game-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(212, 175, 55, 0.35);
+}
+
+.game-card:hover::before {
+  opacity: 1;
+}
+
+.game-card:hover img {
+  transform: scale(1.1);
+}
+
+.game-card:hover h3 {
+  color: #d4af37;
+}
+
+
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #fb2929, #facc15); /* đỏ -> vàng */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.price.contact {
+  color: #6b7280; /* xám */
+  font-style: italic;
+  background: none;
+  -webkit-text-fill-color: unset;
+}

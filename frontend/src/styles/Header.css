@@ -1,0 +1,253 @@
+/* ===== HEADER LUXURY STYLE ===== */
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(15,15,15,0.85);
+  backdrop-filter: blur(12px);
+  padding: 22px 50px;
+  z-index: 1000;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* đảm bảo container chiếm toàn chiều cao header */
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  width:100%;
+}
+
+/* Logo */
+.logo img {
+  width: 240px;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: drop-shadow(0 0 8px rgba(212,175,55,0.15));
+}
+
+.logo img:hover {
+  transform: scale(1.06);
+  filter: drop-shadow(0 0 12px rgba(212,175,55,0.35));
+}
+
+/* Search bar */
+.search-bar {
+  flex: 1;
+  display: flex;
+  max-width: 550px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 14px 18px;
+  border: none;
+  font-size: 17px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #f0f0f0;
+  outline: none;
+}
+
+.search-bar input::placeholder {
+  color: #aaa;
+}
+
+.search-bar button {
+  padding: 14px 22px;
+  border: none;
+  background: linear-gradient(90deg, #d4af37, #b8860b);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.search-bar button:hover {
+  background: linear-gradient(90deg, #ffda6e, #d4af37);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+}
+
+/* Navigation menu */
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav ul li {
+  position: relative;
+}
+
+.nav ul li a {
+  color: #f5f5f5;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 19px;
+  transition: all 0.3s ease;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+/* Hover underline luxury */
+.nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -6px;
+  left: 0;
+  background: linear-gradient(90deg, #d4af37, #ffda6e);
+  transition: width 0.35s ease;
+  border-radius: 2px;
+}
+
+.nav ul li a:hover::after {
+  width: 100%;
+}
+
+.nav ul li a:hover {
+  color: #ffda6e;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  background: rgba(20, 20, 20, 0.95);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  padding: 18px 25px;
+  white-space: nowrap;
+  z-index: 999;
+  border: 1px solid rgba(212,175,55,0.25);
+}
+
+.dropdown-menu.horizontal {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #f0f0f0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.dropdown-menu li a:hover {
+  background: rgba(212, 175, 55, 0.1);
+  color: #ffda6e;
+  transform: translateY(-2px);
+}
+
+/* Show dropdown khi hover li cha */
+.nav ul li.dropdown:hover > .dropdown-menu {
+  display: flex;
+}
+
+/* Giỏ hàng */
+.cart-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.08);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cart-icon-wrapper:hover {
+  transform: scale(1.15);
+  background: rgba(212,175,55,0.25);
+  box-shadow: 0 0 14px rgba(212,175,55,0.4);
+}
+
+.cart-icon-wrapper i {
+  font-size: 26px;
+  color: #f5f5f5;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #d62828;
+  color: #fff;
+  width: 22px;
+  height: 22px;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 6px rgba(0,0,0,0.5);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .header-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .search-bar {
+    width: 100%;
+    max-width: none;
+    margin: 12px 0;
+  }
+
+  .nav ul {
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  /* Mobile dropdown dọc */
+  .dropdown-menu.horizontal {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  .dropdown-menu li a {
+    padding: 14px 20px;
+  }
+}
+
+:root {
+  --header-height: 96px; /* fallback */
+}
+.game-page {
+  padding-top: calc(var(--header-height) + 28px);
+}
