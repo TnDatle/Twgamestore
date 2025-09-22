@@ -14,17 +14,23 @@ const categories = [
 export default function Game() {
   const [activeCategory, setActiveCategory] = useState("PS4"); // mặc định PS4
   const [games, setGames] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  // 🔎 Hàm lấy game theo platform (PS4, PS5…)
+  // 🔎 Hàm lấy game theo platform
   const fetchGames = async (platform) => {
     try {
       setLoading(true);
+      setError("");
       const res = await fetch(`http://localhost:5000/games/${platform}`);
       const data = await res.json();
-      setGames(data);
+
+      // luôn đảm bảo dữ liệu là mảng
+      setGames(Array.isArray(data) ? data : []);
     } catch (err) {
-      console.error("Lỗi khi fetch API:", err);
+      console.error("❌ Lỗi khi fetch API:", err);
+      setError("Không thể tải dữ liệu game. Vui lòng thử lại sau.");
+      setGames([]);
     } finally {
       setLoading(false);
     }
@@ -49,7 +55,9 @@ export default function Game() {
         {categories.map((cat) => (
           <button
             key={cat.value}
-            className={`filter-btn ${activeCategory === cat.value ? "active" : ""}`}
+            className={`filter-btn ${
+              activeCategory === cat.value ? "active" : ""
+            }`}
             onClick={() => setActiveCategory(cat.value)}
           >
             {cat.label}
@@ -82,6 +90,8 @@ export default function Game() {
       {/* Lưới sản phẩm */}
       {loading ? (
         <p>⏳ Đang tải game...</p>
+      ) : error ? (
+        <p className="error">{error}</p>
       ) : games.length === 0 ? (
         <p>Không có game nào.</p>
       ) : (

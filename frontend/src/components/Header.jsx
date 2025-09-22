@@ -29,13 +29,14 @@ export default function Header() {
         <nav className="nav">
           <ul>
             <li><Link to="/">Trang Chủ</Link></li>
+            
             {/* Sản Phẩm */}
             <li
               className="dropdown"
               onMouseEnter={() => setShowProductDropdown(true)}
               onMouseLeave={() => setShowProductDropdown(false)}
             >
-              <Link to="">Sản Phẩm</Link>
+              <Link to="#">Sản Phẩm</Link>
               {showProductDropdown && (
                 <ul className="dropdown-menu horizontal">
                   <li><Link to="/pages/Game">Game</Link></li>
@@ -53,7 +54,7 @@ export default function Header() {
               onMouseEnter={() => setShowTopicDropdown(true)}
               onMouseLeave={() => setShowTopicDropdown(false)}
             >
-              <Link to="/about">Chủ Đề Game</Link>
+              <Link to="#">Chủ Đề Game</Link>
               {showTopicDropdown && (
                 <ul className="dropdown-menu horizontal">
                   <li><Link to="/about/pc">PC</Link></li>
@@ -67,14 +68,21 @@ export default function Header() {
           </ul>
         </nav>
 
-        {/* Giỏ hàng */}
-        <div className="cart">
-          <Link to="/pages/Cart">  {/* viết thường để thống nhất với Route */}
-            <div className="cart-icon-wrapper">
-              <i className="fas fa-shopping-cart"></i>
-              {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
-            </div>
-          </Link>
+        {/* Đăng nhập + Giỏ hàng */}
+        <div className="header-right">
+          <div className="login">
+            <Link to="/pages/Login">
+              <i className="fas fa-user"></i> Đăng nhập
+            </Link>
+          </div>
+          <div className="cart">
+            <Link to="/pages/cart">
+              <div className="cart-icon-wrapper">
+                <i className="fas fa-shopping-cart"></i>
+                {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
     </header>
