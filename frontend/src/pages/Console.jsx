@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Console.css";
-import { formatPrice } from "../utils/format"; // 👈 dùng helper format
+import { formatPrice } from "../utils/format"; 
 import ps5 from "../images/ps5.png";
 import ps4 from "../images/ps4.png";
 import nintendo from "../images/nintendo.webp";
